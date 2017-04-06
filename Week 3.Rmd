@@ -1,0 +1,26 @@
+---
+title: "Data Science Specialization - Developing Data Products"
+author: "C Hales"
+date: "April 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library("plotly")
+data(mtcars)
+```
+
+## Introduction
+
+Tiny project of publishing an interactive 3D graph of data.  The date of the page is `r format(Sys.time(), "%d %B, %Y")`.
+
+## Plot
+
+This graph shows that the relationship between the fuel efficiency is inversely proportional to weight and displacement in the mtcars dataset. The colour codes of the data points are number of cylinders which proportional to displacement.
+
+```{r cars, echo=FALSE, warning=FALSE}
+plot_ly(data=mtcars,x=~mpg,y=~disp,z=~wt,type="scatter3d",mode="markers",color=factor(mtcars$cyl),name="3D")
+```
+
+
